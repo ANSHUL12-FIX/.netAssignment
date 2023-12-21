@@ -1,29 +1,28 @@
-namespace PrintTriangle
+﻿using System;
+
+namespace Star_Pattern
 {
-    class PrintTriangle
+    internal class Program
     {
         static void Main(string[] args)
         {
-            int height, i, j, lft, rt;
-            //taking height from user
-            height = Convert.ToInt32(Console.ReadLine());
-            rt = lft = height;
-            for (i = 1; i <= height; i++)
+            int patternHeight = 4;
+
+            for(int i = 1; i <= patternHeight; i++)
             {
-                for (j = 1; j < (height * 2); j++)
+                //print the spaces of stars
+                for(int j = 1; j <= patternHeight - i; j++)
                 {
-                    if (j < lft || j > rt)
-                    {
-                        Console.Write(" ");
-                    }
-                    else
-                    {
-                        Console.Write("*");
-                    }
+                    Console.Write(" ");
                 }
-                lft--;
-                rt++;
-                Console.WriteLine("\n");
+                //this loop will print star after the space
+                for(int j = 1; j <= 2 * i - 1; j++)
+                {
+                    Console.Write("*");
+                }
+
+                //below console.writeline is used to move to the next line and print other row stars
+                Console.WriteLine();
             }
         }
     }
